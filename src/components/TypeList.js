@@ -12,7 +12,8 @@ export class TypeList extends Component {
   }
 
   render() {
-    return <div>{this.state.types}</div>;
+    console.log(this.state.types);
+    return this.state.types.map((type) => <h4>{type.name}</h4>);
   }
 }
 
