@@ -1,14 +1,19 @@
-import "./App.css";
+import "./static/css/App.css";
+import Logo from "./components/Logo";
 import Navbar from "./components/Navbar";
 import PokemonDetail from "./components/PokemonDetail";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <Router>
+      <Logo />
       <Navbar />
+      <TypeList />
+      <PokemonDetail />
+      <PokemonList />
     </Router>
   );
 }
