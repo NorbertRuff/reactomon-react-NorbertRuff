@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import TypeCard from "./TypeCard";
+import PropTypes from "prop-types";
+
 import axios from "axios";
 
 const url = "https://pokeapi.co/api/v2/type";
@@ -12,9 +15,18 @@ export class TypeList extends Component {
   }
 
   render() {
-    console.log(this.state.types);
-    return this.state.types.map((type) => <h4>{type.name}</h4>);
+    return (
+      <div className="cardContainer">
+        {this.state.types.map((type) => (
+          <TypeCard key={type.name} types={type} />
+        ))}
+      </div>
+    );
   }
 }
+
+TypeList.propTypes = {
+  types: PropTypes.array.isRequired,
+};
 
 export default TypeList;
