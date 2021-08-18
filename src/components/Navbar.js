@@ -8,6 +8,12 @@ export class Navbar extends React.Component {
           <div className="pokeball">
             <div className="pokeball_button"></div>
           </div>
+          <label>Home</label>
+        </div>
+        <div className="pokeballcontainer">
+          <div className="pokeball">
+            <div className="pokeball_button"></div>
+          </div>
           <label>Pokemons</label>
         </div>
         <div className="pokeballcontainer">
