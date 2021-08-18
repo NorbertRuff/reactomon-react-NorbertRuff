@@ -4,7 +4,13 @@ import Background from "../static/img/mainlogo.png";
 const Logo = ({ alt }) => {
   return (
     <div className="logoContainer">
-      <div id="pokelogo" style={logoStyle} alt={alt}></div>
+      <img
+        src={Background}
+        size="100px"
+        id="pokelogo"
+        style={logoStyle}
+        alt={alt}
+      ></img>
     </div>
   );
 };
@@ -15,13 +21,9 @@ Logo.defaultProps = {
 
 const logoStyle = {
   zIndex: 10,
-  marginTop: "50px",
-  backgroundImage: `url(${Background})`,
-  width: "60vw",
+  width: "40vw",
   height: "30vh",
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
+  margin: "auto",
 };
 
 export default Logo;
