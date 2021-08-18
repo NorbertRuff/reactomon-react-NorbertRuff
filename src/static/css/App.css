@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  background-color: skyblue;
+  background-image: url("../img/mountain.png"),
+    linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%), url("../img/shade.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  justify-content: center;
+  padding-top: 20px;
+  grid-template-rows: 30% 10% 50%;
+  font-family: Arial;
+  line-height: 1.4;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+
+.pokebar {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+.navbarBtn {
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 19px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.navbarBtn:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+.navbarBtn:active {
+  position: relative;
+  top: 1px;
+}
