@@ -4,7 +4,20 @@
   padding: 0;
 }
 
-body {
+.overlay {
+  background-image: url("../img/shade3.png");
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+  animation: scale-up 20s alternate ease-in-out infinite;
+}
+
+.pagecontainer {
   display: grid;
   align-items: center;
   background-color: skyblue;
@@ -23,7 +36,11 @@ body {
   margin: auto;
 }
 
+body {
+}
+
 .pokebar {
+  z-index: 10;
   width: 60%;
   display: flex;
   justify-content: space-around;
@@ -117,5 +134,14 @@ label {
   }
   100% {
     transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
   }
 }
