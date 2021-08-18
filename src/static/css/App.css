@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .overlay {
   background-image: url("../img/shade3.png");
   z-index: 1;
@@ -64,9 +69,9 @@
 /*<------------------- navbar --------------------->*/
 .pokebar {
   z-index: 10;
-  width: 40%;
+  width: 30vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin: auto;
 }
@@ -90,6 +95,7 @@ label {
   margin: auto;
   font-size: 20px;
   text-align: center;
+  list-style: none;
 }
 
 .pokeball::before,

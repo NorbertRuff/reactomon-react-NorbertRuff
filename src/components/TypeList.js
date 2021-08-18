@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TypeCard from "./TypeCard";
-import PropTypes from "prop-types";
 
 import axios from "axios";
 
@@ -24,9 +23,5 @@ export class TypeList extends Component {
     );
   }
 }
-
-TypeList.propTypes = {
-  types: PropTypes.array.isRequired,
-};
 
 export default TypeList;
