@@ -17,9 +17,8 @@
   animation: scale-up 20s alternate ease-in-out infinite;
 }
 
-.pagecontainer {
+#root {
   display: grid;
-  align-items: center;
   background-color: skyblue;
   background-image: url("../img/mountain.png"),
     linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%), url("../img/shade.png");
@@ -36,18 +35,42 @@
   margin: auto;
 }
 
-body {
-}
-
-.pokebar {
-  z-index: 10;
-  width: 60%;
+.cardContainer {
   display: flex;
+  flex: 1;
   justify-content: space-around;
-  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
   margin: auto;
 }
 
+.typeCard {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.logoContainer {
+  margin: auto;
+}
+
+/*<------------------- navbar --------------------->*/
+.pokebar {
+  z-index: 10;
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+}
+/*<------------------- navbar buttons --------------------->*/
 .pokeball {
   position: relative;
   width: 100px;
@@ -106,7 +129,9 @@ label {
   animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
 }
 
-/* Animation */
+/*<------------------- navbar buttons --------------------->*/
+/*<------------------- Animation --------------------->*/
+
 @keyframes blink {
   from {
     background: #eee;

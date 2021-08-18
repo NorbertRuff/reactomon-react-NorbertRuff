@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Logo />
       <Navbar />
+      <TypeList />
       <PokemonDetail />
       <PokemonList />
-      <TypeList />
     </Router>
   );
 }
