@@ -14,6 +14,7 @@ Logo.defaultProps = {
 };
 
 const logoStyle = {
+  zIndex: 10,
   marginTop: "50px",
   backgroundImage: `url(${Background})`,
   width: "60vw",
