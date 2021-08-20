@@ -26,6 +26,7 @@ const PokemonList = () => {
 const CardContainer = styled.div`
   display: flex;
   flex: 1;
+  gap: 10px;
   justify-content: space-around;
   flex-wrap: wrap;
   width: 90%;
