@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class PokemonDetail extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+const PokemonDetail = (props) => {
+  console.log(props.match.params.id);
+  return <div></div>;
+};
 
 export default PokemonDetail;

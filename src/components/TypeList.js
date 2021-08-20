@@ -1,27 +1,26 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import TypeCard from "./TypeCard";
 
 import axios from "axios";
 
-const url = "https://pokeapi.co/api/v2/type";
-export class TypeList extends Component {
-  state = {
-    types: [],
-  };
+const TypeList = () => {
+  const url = "https://pokeapi.co/api/v2/type";
 
-  componentDidMount() {
-    axios.get(url).then((res) => this.setState({ types: res.data.results }));
-  }
+  const [types, setTypes] = useState([]);
 
-  render() {
-    return (
-      <div className="cardContainer">
-        {this.state.types.map((type) => (
-          <TypeCard key={type.name} types={type} />
-        ))}
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setTypes(res.data.results);
+    });
+  }, []);
+
+  return (
+    <div className="cardContainer">
+      {types.map((type) => (
+        <TypeCard key={type.name} type={type} />
+      ))}
+    </div>
+  );
+};
 
 export default TypeList;

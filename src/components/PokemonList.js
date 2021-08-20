@@ -1,26 +1,25 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import PokeCard from "./PokeCard";
 import axios from "axios";
 
-const url = "https://pokeapi.co/api/v2/pokemon";
-export class PokemonList extends Component {
-  state = {
-    pokemons: [{}],
-  };
+const PokemonList = () => {
+  const url = "https://pokeapi.co/api/v2/pokemon";
 
-  componentDidMount() {
-    axios.get(url).then((res) => this.setState({ pokemons: res.data.results }));
-  }
+  const [pokemons, setPokemons] = useState([]);
 
-  render() {
-    return (
-      <div className="cardContainer">
-        {this.state.pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.id} pokemon={pokemon}></PokeCard>
-        ))}
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setPokemons(res.data.results);
+    });
+  }, []);
+
+  return (
+    <div className="cardContainer">
+      {pokemons.map((pokemon) => (
+        <PokeCard key={pokemon.name} pokemon={pokemon}></PokeCard>
+      ))}
+    </div>
+  );
+};
 
 export default PokemonList;
