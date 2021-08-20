@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .pokeCardDiv {
   padding: 10px;
   text-decoration: none;
@@ -5,6 +9,96 @@
 }
 .pokeCardDiv li {
   list-style-type: none;
+}
+
+.badge {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 4rem;
+  height: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+#normal_badge {
+  background-image: url("../img/badges/normal.png");
+}
+
+#fire_badge {
+  background-image: url("../img/badges/normal.png");
+}
+
+#water_badge {
+  background-image: url("../img/badges/water.png");
+}
+
+#electric_badge {
+  background-image: url("../img/badges/electric.png");
+}
+
+#grass_badge {
+  background-image: url("../img/badges/grass.png");
+}
+
+#ice_badge {
+  background-image: url("../img/badges/ice.png");
+}
+
+#ground_badge {
+  background-image: url("../img/badges/ground.png");
+}
+
+#flying_badge {
+  background-image: url("../img/badges/flying.png");
+}
+
+#ghost_badge {
+  background-image: url("../img/badges/ghost.png");
+}
+
+#rock_badge {
+  background-image: url("../img/badges/rock.png");
+}
+
+#fighting_badge {
+  background-image: url("../img/badges/fighting.png");
+}
+
+#poison_badge {
+  background-image: url("../img/badges/poison.png");
+}
+
+#psychic_badge {
+  background-image: url("../img/badges/psycic.png");
+}
+
+#bug_badge {
+  background-image: url("../img/badges/bug.png");
+}
+
+#dark_badge {
+  background-image: url("../img/badges/dark.png");
+}
+
+#steel_badge {
+  background-image: url("../img/badges/steel.png");
+}
+
+#dragon_badge {
+  background-image: url("../img/badges/dragon.png");
+}
+
+#fairy_badge {
+  background-image: url("../img/badges/fairy.png");
+}
+
+#unknown_badge {
+  background-image: url("../img/badges/unknown.png");
+}
+
+#shadow_badge {
+  background-image: url("../img/badges/shadow.png");
 }
 
 #normal {
@@ -90,4 +184,14 @@
 #dragon {
   background-color: #7038f8;
   border: 4px solid #4924a1;
+}
+
+#fairy {
+  background-color: #14a3b6;
+  border: 4px solid #0ea08c;
+}
+
+#shadow {
+  background-color: #a3e64c;
+  border: 4px solid #484b52;
 }
