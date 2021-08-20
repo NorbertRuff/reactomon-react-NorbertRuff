@@ -1,29 +1,20 @@
 import React from "react";
-import Background from "../static/img/mainlogo.png";
+import PokeLogo from "../static/img/mainlogo.png";
+import styled from "styled-components";
 
 const Logo = () => {
-  return (
-    <div className="logoContainer">
-      <img
-        src={Background}
-        size="100px"
-        id="pokelogo"
-        style={logoStyle}
-        alt="pokelogo"
-      ></img>
-    </div>
-  );
+  return <LogoImage></LogoImage>;
 };
 
-Logo.defaultProps = {
-  alt: "Pokemon logo",
-};
-
-const logoStyle = {
-  zIndex: 10,
-  width: "40vw",
-  height: "30vh",
-  margin: "auto",
-};
+const LogoImage = styled.div`
+  background-image: url(${PokeLogo});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  width: 20vw;
+  height: 20vh;
+  margin: auto;
+`;
 
 export default Logo;
