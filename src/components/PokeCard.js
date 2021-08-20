@@ -36,12 +36,14 @@ const PokeCard = (props) => {
         <H4> {props.pokemon.name}</H4>
 
         <PokeStyles>
-          Type:
+          <h4>Type</h4>
           {pokemon.types.map((type) => (
-            <div key={type.type.name}>
-              <ul>
-                <li>{type.type.name}</li>
-              </ul>
+            <div
+              key={type.type.name}
+              id={type.type.name + "_badge"}
+              className={"badge"}
+            >
+              {" "}
             </div>
           ))}
         </PokeStyles>
@@ -54,23 +56,30 @@ const PokeThumbnail = styled.div`
   background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  width: 20vh;
+  background-position: left;
+  width: 14vw;
   height: 20vh;
 `;
 
 const PokeCardDiv = styled.div`
   border: 10px;
+  position: relative;
 `;
 
 const H4 = styled.h4`
   text-align: center;
   padding: 10px;
   text-transform: capitalize;
+  font-size: 26px;
 `;
 const PokeStyles = styled.div`
-  text-align: center;
+  text-align: left;
   text-transform: capitalize;
+  position: absolute;
+  width: 5rem;
+  top: 0;
+  left: 72%;
+  font-size: 20px;
 `;
 
 export default PokeCard;
