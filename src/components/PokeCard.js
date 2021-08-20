@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
+import "../static/css/PokeTypes.css";
 
 const PokeCard = (props) => {
   const [pokemon, setPokemon] = useState({
@@ -9,6 +11,7 @@ const PokeCard = (props) => {
     frontpic: null,
     backpic: null,
     dreamWorld: null,
+    firstType: null,
     types: [],
   });
 
@@ -20,18 +23,19 @@ const PokeCard = (props) => {
         frontpic: res.data.sprites.front_default,
         backpic: res.data.sprites.back_default,
         dreamWorld: res.data.sprites.other.dream_world.front_default,
+        firstType: res.data.types[0].type.name,
         types: res.data.types,
       });
     });
   }, [props.pokemon.url]);
 
   return (
-    <div className="PokeCard" id={props.pokemon.name}>
+    <PokeCardDiv id={pokemon.firstType} className="pokeCardDiv">
       <Link key={pokemon.id} to={`/pokemons/${pokemon.id}`}>
-        <img src={pokemon.dreamWorld} alt="pokemon" />
-        <p> {props.pokemon.name}</p>
+        <PokeThumbnail backgroundImage={pokemon.dreamWorld} alt="pokemon" />
+        <H4> {props.pokemon.name}</H4>
 
-        <div>
+        <PokeStyles>
           Type:
           {pokemon.types.map((type) => (
             <div key={type.type.name}>
@@ -40,10 +44,33 @@ const PokeCard = (props) => {
               </ul>
             </div>
           ))}
-        </div>
+        </PokeStyles>
       </Link>
-    </div>
+    </PokeCardDiv>
   );
 };
+
+const PokeThumbnail = styled.div`
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20vh;
+  height: 20vh;
+`;
+
+const PokeCardDiv = styled.div`
+  border: 10px;
+`;
+
+const H4 = styled.h4`
+  text-align: center;
+  padding: 10px;
+  text-transform: capitalize;
+`;
+const PokeStyles = styled.div`
+  text-align: center;
+  text-transform: capitalize;
+`;
 
 export default PokeCard;
