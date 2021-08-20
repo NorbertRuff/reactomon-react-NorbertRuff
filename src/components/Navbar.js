@@ -1,29 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { PokeButton } from "./PokeButton";
 
 const Navbar = () => {
   return (
-    <div className="pokebar">
+    <PokeBar>
       <Link to="/" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Home</label>
+        <PokeButton title="Home" />
       </Link>
       <Link to="/pokemons" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Pokemons</label>
+        <PokeButton title="Pokemons" />
       </Link>
       <Link to="/types" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Types</label>
+        <PokeButton title="Types" />
       </Link>
-    </div>
+    </PokeBar>
   );
 };
+
+const PokeBar = styled.div`
+  z-index: 10;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+`;
 
 export default Navbar;
