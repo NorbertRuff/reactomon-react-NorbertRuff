@@ -29,6 +29,7 @@ const TypeCardContainer = styled.div`
   flex: 1;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 10px;
   width: 90%;
   margin: auto;
 `;
