@@ -75,7 +75,7 @@ const PokemonDetail = (props) => {
       <div>
         Abilities:
         {pokemon.abilities.map((ability) => (
-          <div>
+          <div key={ability.ability.name}>
             <ul>
               <li>{ability.ability.name}</li>
             </ul>
@@ -85,7 +85,7 @@ const PokemonDetail = (props) => {
       <div>
         Type:
         {pokemon.types.map((type) => (
-          <div>
+          <div key={type.type.name}>
             <ul>
               <li>{type.type.name}</li>
             </ul>
@@ -95,7 +95,7 @@ const PokemonDetail = (props) => {
       <div>
         Stats:
         {pokemon.stats.map((stat) => (
-          <div>
+          <div key={stat.stat.name}>
             <ul>
               <li>
                 {stat.stat.name}: {stat.base_stat}

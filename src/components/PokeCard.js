@@ -14,7 +14,6 @@ const PokeCard = (props) => {
 
   useEffect(() => {
     axios.get(props.pokemon.url).then((res) => {
-      console.log(res.data.sprites);
       setPokemon({
         id: res.data.id,
         name: res.data.name,
@@ -28,14 +27,14 @@ const PokeCard = (props) => {
 
   return (
     <div className="PokeCard" id={props.pokemon.name}>
-      <Link key={props.pokemon.name} to={`/pokemons/${pokemon.id}`}>
+      <Link key={pokemon.id} to={`/pokemons/${pokemon.id}`}>
         <img src={pokemon.dreamWorld} alt="pokemon" />
         <p> {props.pokemon.name}</p>
 
         <div>
           Type:
           {pokemon.types.map((type) => (
-            <div>
+            <div key={type.type.name}>
               <ul>
                 <li>{type.type.name}</li>
               </ul>
