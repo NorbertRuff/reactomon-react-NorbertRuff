@@ -5,22 +5,39 @@ import "../static/css/PokeTypes.css";
 const TypeCard = (props) => {
   return (
     <PokeTypeCard id={props.type.name}>
-      <p> {props.type.name}</p>
+      <H4> {props.type.name}</H4>
+      <Badges id={props.type.name + "_badge"}> </Badges>
     </PokeTypeCard>
   );
 };
 
-const PokeTypeCard = styled.div`
-  margin: 20px;
-  padding: 20px;
+const Badges = styled.div`
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: inherit;
+  height: 70%;
+  margin: auto;
+`;
+
+const H4 = styled.div`
   text-align: center;
+  padding: 0 10px;
+  margin: auto;
+  text-transform: capitalize;
+  font-size: 26px;
+`;
+
+const PokeTypeCard = styled.div`
+  text-align: center;
+  margin: auto;
   color: black;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid black;
   border-radius: 20px;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 `;
 
 export default TypeCard;
