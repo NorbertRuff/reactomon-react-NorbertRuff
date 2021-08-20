@@ -1,7 +1,7 @@
 import React from "react";
 import Background from "../static/img/mainlogo.png";
 
-const Logo = ({ alt }) => {
+const Logo = () => {
   return (
     <div className="logoContainer">
       <img
@@ -9,7 +9,7 @@ const Logo = ({ alt }) => {
         size="100px"
         id="pokelogo"
         style={logoStyle}
-        alt={alt}
+        alt="pokelogo"
       ></img>
     </div>
   );
