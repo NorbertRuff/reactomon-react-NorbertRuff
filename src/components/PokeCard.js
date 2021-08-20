@@ -1,22 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import { Link } from "react-router-dom";
 
-export class PokeCard extends Component {
-  render() {
-    return (
-      <div className="PokeCard" id={this.props.pokemons.name}>
+const PokeCard = (props) => {
+  // const pokeId = props.pokemon.url.split("/").slice(-2).slice(0, -1);
+  const pokeId = 1;
+
+  return (
+    <div className="PokeCard" id={props.pokemon.name}>
+      <Link key={props.pokemon.name} to={`/pokemons/${pokeId}`}>
         <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/imgbot/sprites/pokemon/40.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/imgbot/sprites/pokemon/${pokeId}.png`}
           alt="pokemon"
         />
-        <p> {this.props.pokemons.name}</p>
-      </div>
-    );
-  }
-}
-
-PokeCard.propTypes = {
-  pokemons: PropTypes.object.isRequired,
+        <p> {props.pokemon.name}</p>
+      </Link>
+    </div>
+  );
 };
-
 export default PokeCard;

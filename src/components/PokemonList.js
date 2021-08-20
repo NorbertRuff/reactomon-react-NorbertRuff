@@ -16,10 +16,11 @@ export class PokemonList extends Component {
     return (
       <div className="cardContainer">
         {this.state.pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.id} pokemons={pokemon} />
+          <PokeCard key={pokemon.id} pokemon={pokemon}></PokeCard>
         ))}
       </div>
     );
   }
 }
+
 export default PokemonList;
