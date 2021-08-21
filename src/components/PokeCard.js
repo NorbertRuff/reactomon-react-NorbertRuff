@@ -57,7 +57,7 @@ const PokeThumbnail = styled.div`
   background-repeat: no-repeat;
   background-position: left;
   width: 14vw;
-  height: 20vh;
+  height: 17vh;
 `;
 
 const PokeCardDiv = styled.div`
