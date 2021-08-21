@@ -16,17 +16,25 @@ const PokeCard = (props) => {
   });
 
   useEffect(() => {
-    axios.get(props.pokemon.url).then((res) => {
-      setPokemon({
-        id: res.data.id,
-        name: res.data.name,
-        frontpic: res.data.sprites.front_default,
-        backpic: res.data.sprites.back_default,
-        dreamWorld: res.data.sprites.other.dream_world.front_default,
-        firstType: res.data.types[0].type.name,
-        types: res.data.types,
+    axios
+      .get(props.pokemon.url)
+      .then((res) => {
+        setPokemon({
+          id: res.data.id,
+          name: res.data.name,
+          frontpic: res.data.sprites.front_default,
+          backpic: res.data.sprites.back_default,
+          dreamWorld: res.data.sprites.other.dream_world.front_default,
+          firstType: res.data.types[0].type.name,
+          types: res.data.types,
+        });
+      })
+      .catch((error) => {
+        console.error(
+          `The request was made and the server responded
+        with a status code that falls out of the range of 2xx` + error.message
+        );
       });
-    });
   }, [props.pokemon.url]);
 
   return (
@@ -57,7 +65,7 @@ const PokeThumbnail = styled.div`
   background-repeat: no-repeat;
   background-position: left;
   width: 14vw;
-  height: 20vh;
+  height: 17vh;
 `;
 
 const PokeCardDiv = styled.div`

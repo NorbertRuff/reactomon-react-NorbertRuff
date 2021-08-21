@@ -23,13 +23,6 @@ const PokemonDetail = (props) => {
   const [description, setDescription] = useState();
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/characteristic/${id}`).then((res) => {
-      console.log(res.data);
-      setDescription(res.data.descriptions[2].description);
-    });
-  }, [id]);
-
-  useEffect(() => {
     axios
       .get(url)
       .then((res) => {
@@ -49,22 +42,25 @@ const PokemonDetail = (props) => {
           stats: res.data.stats,
         });
       })
-      .catch(function (error) {
-        if (error.response) {
-          console.error(
-            `The request was made and the server responded
-         with a status code that falls out of the range of 2xx"error.response.data` +
-              error.response
-          );
-        } else if (error.request) {
-          console.error(
-            `The request was made but no response was received` + error.request
-          );
-        } else {
-          console.error("Error!", error.message);
-        }
+      .catch((error) => {
+        console.error(
+          `The request was made and the server responded
+        with a status code that falls out of the range of 2xx` + error.message
+        );
       });
-  }, [url]);
+
+    axios
+      .get(`https://pokeapi.co/api/v2/characteristic/${id}`)
+      .then((res) => {
+        setDescription(res.data.descriptions[2].description);
+      })
+      .catch((error) => {
+        console.error(
+          `The request was made and the server responded
+        with a status code that falls out of the range of 2xx` + error.message
+        );
+      });
+  }, [id, url]);
 
   return (
     <PokemonDetails id={pokemon.firstType}>
