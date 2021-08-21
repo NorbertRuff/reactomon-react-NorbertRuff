@@ -24,7 +24,6 @@ const PokemonDetail = (props) => {
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/characteristic/${id}`).then((res) => {
-      console.log(res.data);
       setDescription(res.data.descriptions[2].description);
     });
   }, [id]);
