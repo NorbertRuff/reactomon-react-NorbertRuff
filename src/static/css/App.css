@@ -38,7 +38,6 @@ a {
     ". content . ";
   background-repeat: no-repeat;
   background-size: contain;
-  gap: 10px;
   background-image: url("../img/mountain.png"),
     linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   background-position: bottom;
@@ -47,7 +46,6 @@ a {
   line-height: 1.4;
   width: 99.8%;
   height: 100vh;
-  margin: 0;
 }
 
 body::after {
