@@ -21,6 +21,8 @@ const Badges = styled.div`
 `;
 
 const H4 = styled.div`
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   text-align: center;
   padding: 0 10px;
   margin: auto;
@@ -29,6 +31,8 @@ const H4 = styled.div`
 `;
 
 const PokeTypeCard = styled.div`
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   text-align: center;
   margin: auto;
   color: black;

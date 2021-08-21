@@ -13,6 +13,8 @@ export const PokeButton = (props) => {
 };
 
 const PokeballConatiner = styled.div`
+  margin: 0;
+
   :hover {
     cursor: pointer;
   }
@@ -33,6 +35,8 @@ const Blink = keyframes`
 `;
 
 const PokeBall = styled.div`
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   position: relative;
   width: 100px;
   height: 100px;
@@ -40,7 +44,6 @@ const PokeBall = styled.div`
   border: 5px solid #000;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: inset -5px 10px 0 5px #ccc;
 
   :before,
   :after {

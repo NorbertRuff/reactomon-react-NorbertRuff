@@ -25,6 +25,7 @@ const TypeList = () => {
 };
 
 const TypeCardContainer = styled.div`
+  grid-area: content;
   display: flex;
   flex: 1;
   justify-content: space-between;

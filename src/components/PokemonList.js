@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 const PokemonList = () => {
-  const url = "https://pokeapi.co/api/v2/pokemon";
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=100";
 
   const [pokemons, setPokemons] = useState([]);
 
@@ -24,12 +24,12 @@ const PokemonList = () => {
 };
 
 const CardContainer = styled.div`
+  grid-area: content;
   display: flex;
   flex: 1;
   gap: 10px;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 90%;
   margin: auto;
 `;
 
