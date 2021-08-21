@@ -2,6 +2,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  -webkit-text-stroke: 2px black;
+  /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5); */
+  color: yellow;
+  /* text-shadow: -1px -1px 0px #2196f3, 2px 2px 2px #2196f3, 3px 3px 0px #0d47a1; */
 }
 
 a {
@@ -11,9 +17,9 @@ a {
 
 .overlay {
   background-image: url("../img/shade3.png");
-  z-index: 1;
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
+  background-position: center;
   pointer-events: none;
   position: absolute;
   width: 100%;
@@ -24,155 +30,40 @@ a {
 
 #root {
   display: grid;
-  background-color: skyblue;
-  background-image: url("../img/mountain.png"),
-    linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%), url("../img/shade.png");
+  grid-template-columns: 9% 80% 9%;
+  grid-template-rows: 20% 40% 39%;
+  grid-template-areas:
+    "header header header"
+    ". content ."
+    ". content . ";
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
+  gap: 10px;
+  background-image: url("../img/mountain.png"),
+    linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   background-position: bottom;
   justify-content: center;
-  padding-top: 20px;
-  grid-template-rows: 30% 10% 50%;
   font-family: Arial;
   line-height: 1.4;
-  width: 100vw;
+  width: 99.8%;
   height: 100vh;
-  margin: auto;
+  margin: 0;
 }
 
-.cardContainer {
-  display: flex;
-  flex: 1;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: auto;
-}
-
-.typeCard {
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid black;
-  border-radius: 20px;
-  width: 100px;
-  height: 100px;
-}
-
-.logoContainer {
-  margin: auto;
-}
-
-/*<------------------- navbar --------------------->*/
-.pokebar {
-  z-index: 10;
-  width: 30vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-}
-/*<------------------- navbar buttons --------------------->*/
-.pokeball {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: #fff;
-  border: 5px solid #000;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: inset -5px 10px 0 5px #ccc;
-  cursor: pointer;
-}
-
-label {
-  display: inherit;
-  top: 10px;
-  font-weight: bold;
-  margin: auto;
-  font-size: 20px;
-  text-align: center;
-  list-style: none;
-}
-
-.pokeball::before,
-.pokeball::after {
+body::after {
   content: "";
   position: absolute;
-}
-
-.pokeball::before {
-  background: red;
-  width: 100%;
-  height: 50%;
-}
-
-.pokeball::after {
-  top: calc(50% - 8px);
-  width: 100%;
-  height: 8px;
-  background: #000;
-}
-
-.pokeball_button {
-  position: absolute;
-  top: calc(50% - 10px);
-  left: calc(50% - 10px);
-  width: 20px;
-  height: 20px;
-  background: #7f8c8d;
-  border: 3px solid #fff;
-  border-radius: 50%;
+  background-color: skyblue;
   z-index: 10;
-  box-shadow: 0 0 0 8px black;
-  animation: blink 0.5s alternate infinite;
 }
 
-.pokeball:hover {
-  animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
-}
-
-/*<------------------- navbar buttons --------------------->*/
 /*<------------------- Animation --------------------->*/
-
-@keyframes blink {
-  from {
-    background: #eee;
-  }
-  to {
-    background: #e74c3c;
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(0, 0) rotate(0);
-  }
-  20% {
-    transform: translate(-10px, 0) rotate(-20deg);
-  }
-  30% {
-    transform: translate(10px, 0) rotate(20deg);
-  }
-  50% {
-    transform: translate(-10px, 0) rotate(-10deg);
-  }
-  60% {
-    transform: translate(10px, 0) rotate(10deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0);
-  }
-}
 
 @keyframes scale-up {
   0% {
-    transform: scale(1);
+    background-size: 130%;
   }
   100% {
-    transform: scale(1.3);
+    background-size: 100%;
   }
 }

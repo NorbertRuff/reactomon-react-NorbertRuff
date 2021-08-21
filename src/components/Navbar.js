@@ -1,29 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { PokeButton } from "./PokeButton";
 
 const Navbar = () => {
   return (
-    <div className="pokebar">
+    <PokeBar>
       <Link to="/" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Home</label>
+        <PokeButton title="Home" />
       </Link>
       <Link to="/pokemons" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Pokemons</label>
+        <PokeButton title="Pokemons" />
       </Link>
       <Link to="/types" className="pokeballcontainer">
-        <div className="pokeball">
-          <div className="pokeball_button"></div>
-        </div>
-        <label>Types</label>
+        <PokeButton title="Types" />
       </Link>
-    </div>
+      <Link to="/abilties" className="pokeballcontainer">
+        <PokeButton title="Abilities" />
+      </Link>
+      <Link to="/items" className="pokeballcontainer">
+        <PokeButton title="Items" />
+      </Link>
+      <Link to="/pokemons" className="pokeballcontainer">
+        <PokeButton title="Pokemons" />
+      </Link>
+    </PokeBar>
   );
 };
+
+const PokeBar = styled.div`
+  grid-area: navbar;
+  z-index: 10;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export default Navbar;
