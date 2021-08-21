@@ -52,8 +52,7 @@ const PokemonDetail = (props) => {
         if (error.response) {
           console.error(
             `The request was made and the server responded
-         with a status code that falls out of the range of 2xx"error.response.data` +
-              error.response
+         with a status code that falls out of the range of 2xx` + error.response
           );
         } else if (error.request) {
           console.error(

@@ -25,6 +25,19 @@ const PokeCard = (props) => {
         dreamWorld: res.data.sprites.other.dream_world.front_default,
         firstType: res.data.types[0].type.name,
         types: res.data.types,
+      }).catch(function (error) {
+        if (error.response) {
+          console.error(
+            `The request was made and the server responded
+         with a status code that falls out of the range of 2xx` + error.response
+          );
+        } else if (error.request) {
+          console.error(
+            `The request was made but no response was received` + error.request
+          );
+        } else {
+          console.error("Error!", error.message);
+        }
       });
     });
   }, [props.pokemon.url]);

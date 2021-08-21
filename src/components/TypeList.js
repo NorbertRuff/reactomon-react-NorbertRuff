@@ -10,9 +10,25 @@ const TypeList = () => {
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setTypes(res.data.results);
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        setTypes(res.data.results);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.error(
+            `The request was made and the server responded
+       with a status code that falls out of the range of 2xx` + error.response
+          );
+        } else if (error.request) {
+          console.error(
+            `The request was made but no response was received` + error.request
+          );
+        } else {
+          console.error("Error!", error.message);
+        }
+      });
   }, []);
 
   return (
