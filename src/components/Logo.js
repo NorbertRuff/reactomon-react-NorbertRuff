@@ -1,5 +1,5 @@
 import React from "react";
-import PokeLogo from "../static/img/pokelogo5.png";
+import PokeLogo from "../static/img/pokelogo.png";
 import styled from "styled-components";
 
 const Logo = () => {
@@ -13,8 +13,8 @@ const LogoImage = styled.div`
   background-image: url(${PokeLogo});
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 100%;
   z-index: 10;
   margin: 0;
 `;
