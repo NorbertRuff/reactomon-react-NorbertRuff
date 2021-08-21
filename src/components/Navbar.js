@@ -15,7 +15,7 @@ const Navbar = () => {
       <Link to="/types" className="pokeballcontainer">
         <PokeButton title="Types" />
       </Link>
-      <Link to="/abilties" className="pokeballcontainer">
+      <Link to="/abilities" className="pokeballcontainer">
         <PokeButton title="Abilities" />
       </Link>
       <Link to="/items" className="pokeballcontainer">
