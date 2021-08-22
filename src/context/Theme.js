@@ -1,12 +1,25 @@
 import { createGlobalStyle } from "styled-components";
+import DarkBackgound from "../static/img/background2.png";
+import LightBackgound from "../static/img/background1.png";
+import DarkShade from "../static/img/shade2.png";
+import LightShade from "../static/img/shade1.png";
 
 export const lightTheme = {
+  background: LightBackgound,
+  backgroundColor: "rgba(53, 100, 173, 0.6)",
+  shade: LightShade,
   pokeColor: "cornflowerblue",
   body: "rgba(53, 100, 173, 0.6)",
-  gradfrom: "rgba(53, 100, 173, 0.6)",
-  gradto: "#c2e9fb",
+
+  border: {
+    borderBottom: "10px ridge rgba(255, 250, 11, 0.82);",
+    borderRight: "10px ridge rgba(255, 250, 11, 0.82);",
+    borderLeft: "10px ridge rgba(255, 250, 11, 0.82);",
+  },
+
   pokeballColor: "red",
   fontColor: "yellow",
+
   textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
   stroke: "2px black",
   boxShadow:
@@ -14,12 +27,21 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  background: DarkBackgound,
+  backgroundColor: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e);",
+  shade: DarkShade,
   pokeColor: "yellow",
   body: "#705898",
-  gradfrom: "rgba(53, 100, 173, 0.8)",
-  gradto: "#000",
+
+  border: {
+    borderBottom: "10px ridge rgba(100, 100, 100, 0.82);",
+    borderRight: "10px ridge rgba(100, 100, 100, 0.82);",
+    borderLeft: "10px ridge rgba(100, 100, 100, 0.82);",
+  },
+
   pokeballColor: "#7038f8",
-  fontColor: "white",
+  fontColor: "black",
+
   textShadow: "2px 2px 4px #c03028",
   stroke: "2px #c03028",
   boxShadow:
@@ -28,8 +50,20 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
 	body {
-		background-color: ${(props) => props.theme.body};
+    background-image: url(${(props) => props.theme.background});
+		background-color: ${(props) => props.theme.backgroundColor};
+    background-repeat: repeat-x;
+  background-size: contain;
+  background-position: bottom;
 	}
+
+  body::after {
+  content: "";
+  position: absolute;
+  background-color: skyblue;
+  z-index: 10;
+}
+
   * {
   box-sizing: border-box;
   margin: 0;
@@ -37,7 +71,7 @@ export const GlobalStyles = createGlobalStyle`
   font-family: "Luckiest Guy", cursive;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   -webkit-text-stroke: 2px black;
-  color: yellow;
+
 }
 
 a {
