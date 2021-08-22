@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import "../static/css/PokeTypes.css";
 
 const PokeCard = (props) => {
@@ -68,11 +68,27 @@ const PokeThumbnail = styled.div`
   height: 17vh;
 `;
 
+const Scale = keyframes`
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(-180deg);
+  }
+  50% {
+    transform: rotateY(-180deg);
+  }
+}
+`;
+
 const PokeCardDiv = styled.div`
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 10px;
   position: relative;
+  :hover {
+    animation: ${Scale} 0.6s ease-in-out both;
+  }
 `;
 
 const H4 = styled.h4`

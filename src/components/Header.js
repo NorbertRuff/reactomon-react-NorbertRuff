@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Header = (props) => {
   const changeTheme = () => {
@@ -25,6 +25,11 @@ const Header = (props) => {
   );
 };
 
+const Scale = keyframes`
+    0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
+`;
+
 const ThemeChangeButton = styled.button`
   display: flex;
   align-items: flex-end;
@@ -33,7 +38,7 @@ const ThemeChangeButton = styled.button`
   padding: 0.5rem;
   width: 9rem;
   height: 8rem;
-  border-radius: 2rem;
+  border-radius: 30%;
   color: black;
   font-size: 1.3rem;
   text-align: center;
@@ -43,6 +48,10 @@ const ThemeChangeButton = styled.button`
   background-size: 70% 80%;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+  :hover {
+    animation: ${Scale} 0.6s ease-in-out both;
+  }
 `;
 
 const ThemeChangeDiv = styled.div`

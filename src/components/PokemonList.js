@@ -117,7 +117,6 @@ const CardContainer = styled.div`
   gap: 5px;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: auto;
 `;
 
 export default PokemonList;
