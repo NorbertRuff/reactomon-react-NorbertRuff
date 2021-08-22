@@ -39,15 +39,15 @@ const ThemeChangeDiv = styled.div`
 
 const HeaderDiv = styled.div`
   color: ${(props) => props.theme.fontColor};
-  background-color: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.backgroundColor};
   display: grid;
   grid-template-areas: "logo navbar user";
   grid-template-columns: 25% 50% 25%;
   justify-items: center;
   grid-area: header;
-  border-bottom: 10px ridge rgba(255, 250, 11, 0.82);
-  border-right: 10px ridge rgba(255, 250, 11, 0.82);
-  border-left: 10px ridge rgba(255, 250, 11, 0.82);
+  border-bottom: ${(props) => props.theme.border.borderBottom};
+  border-right: ${(props) => props.theme.border.borderRight};
+  border-left: ${(props) => props.theme.border.borderLeft};
   border-radius: 0px 0px 50px 50px;
 
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
