@@ -81,7 +81,7 @@ const PokemonDetail = (props) => {
         Type:
         {pokemon.types.map((type) => (
           <div key={type.type.name}>
-            <span>{type.type.name}</span>
+            <Span>{type.type.name}</Span>
           </div>
         ))}
       </Type>
@@ -90,7 +90,7 @@ const PokemonDetail = (props) => {
         Abilities:
         {pokemon.abilities.map((ability) => (
           <div key={ability.ability.name}>
-            <span>{ability.ability.name}</span>
+            <Span>{ability.ability.name}</Span>
           </div>
         ))}
       </Abilities>
@@ -120,8 +120,8 @@ const Title = styled.h2`
   text-align: center;
   grid-area: title;
   font-size: 45px;
-  background-color: ${(props) => props.theme.pokeColor};
-  border-bottom: 10px ridge rgba(255, 250, 11, 0.82);
+  background-color: ${(props) => props.theme.body};
+  border-bottom: ${(props) => props.theme.border.borderBottom};
   border-radius: 0px 0px 30px 30px;
   width: 100%;
   color: white;
@@ -142,7 +142,8 @@ const Gallery = styled.div`
 
 const PokePicture = styled.div`
   grid-area: picture;
-  background-color: rgb(48 167 215);
+  color: ${(props) => props.theme.box};
+  background-color: ${(props) => props.theme.box};
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid black;
@@ -170,10 +171,15 @@ const Description = styled.div`
 `;
 const Abilities = styled.div`
   font-size: 30px;
-  color: white;
+  color: lightblue;
   display: flex;
   gap: 20px;
   justify-content: space-around;
 `;
 
+const Span = styled.span`
+  color: ${(props) => props.theme.backgroundColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
+`;
 export default PokemonDetail;

@@ -17,9 +17,7 @@ const Header = (props) => {
       <Logo />
       <Navbar theme={props.theme} />
       <ThemeChangeDiv>
-        <ThemeChangeButton onClick={changeTheme}>
-          Toggle theme
-        </ThemeChangeButton>
+        <ThemeChangeButton onClick={changeTheme}></ThemeChangeButton>
       </ThemeChangeDiv>
     </HeaderDiv>
   );
@@ -27,9 +25,16 @@ const Header = (props) => {
 
 const ThemeChangeButton = styled.button`
   margin: auto;
-  padding: 10px;
+  padding: 20px;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 2rem;
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props) => props.theme.body};
+  background-image: url(${(props) => props.theme.icon});
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const ThemeChangeDiv = styled.div`

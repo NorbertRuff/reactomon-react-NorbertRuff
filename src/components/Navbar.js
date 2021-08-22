@@ -21,9 +21,6 @@ const Navbar = (props) => {
       <Link to="/items" className="pokeballcontainer">
         <PokeButton title="Items" theme={props.theme} />
       </Link>
-      <Link to="/pokemons" className="pokeballcontainer">
-        <PokeButton title="Pokemons" theme={props.theme} />
-      </Link>
     </PokeBar>
   );
 };

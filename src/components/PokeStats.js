@@ -7,15 +7,15 @@ const PokeStats = (props) => {
       <div>
         <H4>
           Experience
-          <Span> {props.pokemon.experience}</Span>
+          <Span> --> {props.pokemon.experience}</Span>
         </H4>
         <H4>
           Weight
-          <Span> {props.pokemon.weight}</Span>
+          <Span> --> {props.pokemon.weight}</Span>
         </H4>
         <H4>
           Height
-          <Span> {props.pokemon.height}</Span>
+          <Span> --> {props.pokemon.height}</Span>
         </H4>
       </div>
       <div>
@@ -34,7 +34,7 @@ const H4 = styled.h4`
   text-align: Left;
 
   font-size: 2rem;
-  color: ${(props) => props.theme.pokeballColor};
+  color: white;
   text-shadow: ${(props) => props.theme.textShadow};
   -webkit-text-stroke: ${(props) => props.theme.stroke};
   z-index: 10;
@@ -52,7 +52,7 @@ const Stats = styled.div`
   align-items: center;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  background-color: rgb(48 167 215);
+  background-color: ${(props) => props.theme.box};
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid black;
@@ -64,7 +64,7 @@ const Stats = styled.div`
 `;
 
 const Span = styled.span`
-  color: ${(props) => props.theme.pokeballColor};
+  color: ${(props) => props.theme.statsColor};
   text-shadow: ${(props) => props.theme.textShadow};
   -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
