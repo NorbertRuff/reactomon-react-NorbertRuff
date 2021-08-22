@@ -4,6 +4,7 @@ import PokemonList from "./components/PokemonList";
 import Abilities from "./components/Abilities";
 import TypeList from "./components/TypeList";
 import Overlay from "./components/Overlay";
+import Home from "./components/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import React, { useState } from "react";
@@ -21,7 +22,11 @@ function App() {
           <Overlay />
           <Header theme={theme} setTheme={setTheme} />
           <Switch>
-            <Route path="/" exact />
+            <Route
+              path="/"
+              render={(props) => <Home {...props} theme={theme} />}
+              exact
+            />
             <Route
               path="/pokemons"
               render={(props) => <PokemonList {...props} theme={theme} />}
