@@ -4,7 +4,7 @@ import TypeCard from "./TypeCard";
 import axios from "axios";
 import styled from "styled-components";
 
-const TypeList = () => {
+const TypeList = (props) => {
   const url = "https://pokeapi.co/api/v2/type";
 
   const [types, setTypes] = useState([]);
@@ -26,7 +26,7 @@ const TypeList = () => {
   return (
     <TypeCardContainer>
       {types.map((type) => (
-        <TypeCard key={type.name} type={type} />
+        <TypeCard key={type.name} type={type} theme={props.theme} />
       ))}
     </TypeCardContainer>
   );

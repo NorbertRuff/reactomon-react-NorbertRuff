@@ -5,7 +5,7 @@ import styled from "styled-components";
 import NextButtonImg from "../static/img/next.png";
 import PrevButtonImg from "../static/img/prev.png";
 
-const PokemonList = () => {
+const PokemonList = (props) => {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=15";
 
   const [pokemons, setPokemons] = useState([]);
@@ -58,7 +58,11 @@ const PokemonList = () => {
       </PageNav>
       <CardContainer>
         {pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.name} pokemon={pokemon}></PokeCard>
+          <PokeCard
+            key={pokemon.name}
+            pokemon={pokemon}
+            theme={props.theme}
+          ></PokeCard>
         ))}
       </CardContainer>
       <PageNav>
