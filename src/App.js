@@ -1,5 +1,4 @@
 import "./static/css/App.css";
-import Mountain from "./static/img/mountain.png";
 import PokemonDetail from "./components/PokemonDetail";
 import PokemonList from "./components/PokemonList";
 import Abilities from "./components/Abilities";
@@ -51,13 +50,6 @@ function App() {
 }
 
 const PageContainer = styled.div`
-  :before {
-    background-image: linear-gradient(
-      120deg,
-      ${(props) => props.theme.gradfrom} 0%,
-      ${(props) => props.theme.gradto} 100
-    );
-  }
   display: grid;
   grid-template-columns: 5% 90% 5%;
   grid-template-rows: 20% 40% 39%;
@@ -65,10 +57,6 @@ const PageContainer = styled.div`
     "header header header"
     ". content ."
     ". content . ";
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url(${Mountain});
-  background-position: bottom;
   justify-content: center;
   line-height: 1.4;
   width: 99.8%;
