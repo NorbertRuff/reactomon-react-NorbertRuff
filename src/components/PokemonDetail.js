@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import PokeStats from "./PokeStats";
 
 const PokemonDetail = (props) => {
   const id = props.match.params.id;
@@ -80,39 +81,16 @@ const PokemonDetail = (props) => {
         Type:
         {pokemon.types.map((type) => (
           <div key={type.type.name}>
-            <span>{type.type.name}</span>
+            <Span>{type.type.name}</Span>
           </div>
         ))}
       </Type>
-      <Stats>
-        <div>
-          <H4>
-            Experience
-            <span> {pokemon.experience}</span>
-          </H4>
-          <H4>
-            Weight
-            <span> {pokemon.weight}</span>
-          </H4>
-          <H4>
-            Height
-            <span> {pokemon.height}</span>
-          </H4>
-        </div>
-        <div>
-          {pokemon.stats.map((stat) => (
-            <H3 key={stat.stat.name}>
-              {stat.stat.name}
-              <span>--> {stat.base_stat}</span>
-            </H3>
-          ))}
-        </div>
-      </Stats>
+      <PokeStats theme={props.them} pokemon={pokemon} />
       <Abilities>
         Abilities:
         {pokemon.abilities.map((ability) => (
           <div key={ability.ability.name}>
-            <span>{ability.ability.name}</span>
+            <Span>{ability.ability.name}</Span>
           </div>
         ))}
       </Abilities>
@@ -142,8 +120,8 @@ const Title = styled.h2`
   text-align: center;
   grid-area: title;
   font-size: 45px;
-  background-color: rgb(100, 100, 100);
-  border-bottom: 10px ridge rgba(255, 250, 11, 0.82);
+  background-color: ${(props) => props.theme.body};
+  border-bottom: ${(props) => props.theme.border.borderBottom};
   border-radius: 0px 0px 30px 30px;
   width: 100%;
   color: white;
@@ -151,20 +129,6 @@ const Title = styled.h2`
   margin-bottom: 10px;
 `;
 
-const H4 = styled.h4`
-  text-align: Left;
-
-  font-size: 2rem;
-  color: white;
-  z-index: 10;
-`;
-
-const H3 = styled.h4`
-  text-align: Left;
-  font-size: 1.5rem;
-  color: white;
-  z-index: 10;
-`;
 const Thumbnail = styled.img`
   width: 150px;
   height: auto;
@@ -175,26 +139,11 @@ const Gallery = styled.div`
   justify-content: space-between;
   grid-area: gallery;
 `;
-const Stats = styled.div`
-  display: grid;
-  grid-area: stats;
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  background-color: rgb(48 167 215);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 2rem;
-  padding: 20px;
-  margin: 10px;
-  justify-content: space-around;
-`;
 
 const PokePicture = styled.div`
   grid-area: picture;
-  background-color: rgb(48 167 215);
+  color: ${(props) => props.theme.box};
+  background-color: ${(props) => props.theme.box};
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid black;
@@ -209,19 +158,28 @@ const Type = styled.div`
   flex: 1;
   justify-content: space-evenly;
   gap: 10px;
-  color: white;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
 const Description = styled.div`
-  color: cornflowerblue;
+  color: ${(props) => props.theme.body};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
   grid-area: description;
   font-size: 4rem;
 `;
 const Abilities = styled.div`
   font-size: 30px;
-  color: white;
+  color: lightblue;
   display: flex;
   gap: 20px;
   justify-content: space-around;
 `;
 
+const Span = styled.span`
+  color: ${(props) => props.theme.backgroundColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
+`;
 export default PokemonDetail;

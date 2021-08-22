@@ -13,8 +13,12 @@ export const PokeButton = (props) => {
 };
 
 const PokeballConatiner = styled.div`
-  margin: 0;
-
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 20px;
   :hover {
     cursor: pointer;
   }
@@ -35,8 +39,9 @@ const Blink = keyframes`
 `;
 
 const PokeBall = styled.div`
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
   position: relative;
   width: 100px;
   height: 100px;
@@ -57,7 +62,7 @@ const PokeBall = styled.div`
     background: #000;
   }
   :before {
-    background: red;
+    background: ${(props) => props.theme.pokeballColor};
     width: 100%;
     height: 50%;
   }
@@ -82,10 +87,13 @@ const PokeballButton = styled.div`
 
 const Label = styled.label`
   display: inherit;
-  top: 10px;
   font-weight: bold;
+  text-transform: uppercase;
   margin: auto;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   list-style: none;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;

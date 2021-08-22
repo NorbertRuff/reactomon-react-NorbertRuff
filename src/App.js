@@ -1,44 +1,69 @@
 import "./static/css/App.css";
-import Logo from "./components/Logo";
-import Navbar from "./components/Navbar";
 import PokemonDetail from "./components/PokemonDetail";
 import PokemonList from "./components/PokemonList";
 import Abilities from "./components/Abilities";
 import TypeList from "./components/TypeList";
+import Overlay from "./components/Overlay";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
+import Header from "./components/Header";
+import React, { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./context/Theme.js";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
   return (
-    <BrowserRouter>
-      <Header>
-        <Logo />
-        <Navbar />
-      </Header>
-      <Switch>
-        <Route path="/" exact />
-        <Route path="/pokemons" component={PokemonList} exact />
-        <Route path="/pokemons/:id" component={PokemonDetail} exact />
-        <Route path="/abilities" component={Abilities} exact />
-        <Route path="/types" component={TypeList} exact />
-      </Switch>
-    </BrowserRouter>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <PageContainer theme={theme}>
+        <BrowserRouter>
+          <Overlay />
+          <Header theme={theme} setTheme={setTheme} />
+          <Switch>
+            <Route path="/" exact />
+            <Route
+              path="/pokemons"
+              render={(props) => <PokemonList {...props} theme={theme} />}
+              exact
+            />
+            <Route
+              path="/pokemons/:id"
+              render={(props) => <PokemonDetail {...props} theme={theme} />}
+              exact
+            />
+            <Route
+              path="/abilities"
+              render={(props) => <Abilities {...props} theme={theme} />}
+              exact
+            />
+            <Route
+              path="/types"
+              render={(props) => <TypeList {...props} theme={theme} />}
+              exact
+            />
+          </Switch>
+        </BrowserRouter>
+      </PageContainer>
+    </ThemeProvider>
   );
 }
 
-const Header = styled.div`
+const PageContainer = styled.div`
   display: grid;
-  grid-template-areas: "logo navbar user";
-  grid-template-columns: 25% 50% 25%;
-  justify-items: center;
-  grid-area: header;
-  border-bottom: 10px ridge rgba(255, 250, 11, 0.82);
-  border-right: 10px ridge rgba(255, 250, 11, 0.82);
-  border-left: 10px ridge rgba(255, 250, 11, 0.82);
-  border-radius: 0px 0px 50px 50px;
-  background-color: rgba(53, 100, 173, 0.6);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 20% 40% 39%;
+  grid-template-areas:
+    "header header header"
+    ". content ."
+    ". content . ";
+  justify-content: center;
+  line-height: 1.4;
+  width: 99.8%;
+  height: 100vh;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
 
 export default App;

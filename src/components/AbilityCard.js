@@ -32,7 +32,7 @@ const AbilityCard = (props) => {
   }, [props.ability.url]);
 
   return (
-    <PokeAbilityCard id={props.ability.name}>
+    <PokeAbilityCard>
       <H4>
         {ability.name} #0{ability.id}
       </H4>
@@ -43,11 +43,11 @@ const AbilityCard = (props) => {
 };
 
 const H4 = styled.div`
-  color: white;
+  color: ${(props) => props.theme.fontColor};
   text-align: center;
   margin: auto;
   text-transform: capitalize;
-  font-size: 24px;
+  font-size: 26px;
 `;
 
 const H3 = styled.div`
@@ -55,8 +55,10 @@ const H3 = styled.div`
   padding: 0 10px;
   margin: auto;
   text-transform: capitalize;
-  font-size: 18px;
-  color: white;
+  font-size: 20px;
+  color: ${(props) => props.theme.box};
+  text-shadow: none;
+  -webkit-text-stroke: none;
 `;
 
 const PokeAbilityCard = styled.div`
@@ -64,13 +66,16 @@ const PokeAbilityCard = styled.div`
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  background-color: rgb(48 167 215);
+
+  background-color: ${(props) => props.theme.textColor};
+
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid black;
   text-align: center;
   margin: auto;
-  color: black;
+  color: ${(props) => props.theme.box};
+
   border-radius: 20px;
   width: 290px;
   height: 240px;
