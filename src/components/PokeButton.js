@@ -13,8 +13,12 @@ export const PokeButton = (props) => {
 };
 
 const PokeballConatiner = styled.div`
-  margin: 0;
-
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 20px;
   :hover {
     cursor: pointer;
   }
@@ -83,10 +87,10 @@ const PokeballButton = styled.div`
 
 const Label = styled.label`
   display: inherit;
-  top: 10px;
   font-weight: bold;
+  text-transform: uppercase;
   margin: auto;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   list-style: none;
   color: ${(props) => props.theme.fontColor};
