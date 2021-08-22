@@ -17,22 +17,30 @@ const Header = (props) => {
       <Logo />
       <Navbar theme={props.theme} />
       <ThemeChangeDiv>
-        <ThemeChangeButton onClick={changeTheme}></ThemeChangeButton>
+        <ThemeChangeButton onClick={changeTheme}>
+          {props.theme} mode
+        </ThemeChangeButton>
       </ThemeChangeDiv>
     </HeaderDiv>
   );
 };
 
 const ThemeChangeButton = styled.button`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   margin: auto;
-  padding: 20px;
-  width: 6rem;
-  height: 6rem;
+  padding: 0.5rem;
+  width: 9rem;
+  height: 8rem;
   border-radius: 2rem;
-  color: ${(props) => props.theme.fontColor};
+  color: black;
+  font-size: 1.3rem;
+  text-align: center;
+  -webkit-text-stroke: 1px white;
   background-color: ${(props) => props.theme.body};
   background-image: url(${(props) => props.theme.icon});
-  background-size: 80% 80%;
+  background-size: 70% 80%;
   background-position: center;
   background-repeat: no-repeat;
 `;
