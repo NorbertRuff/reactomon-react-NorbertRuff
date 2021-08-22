@@ -80,7 +80,7 @@ const H4 = styled.h4`
   padding: 10px;
   text-transform: capitalize;
   font-size: 26px;
-  color: ${(props) => props.theme.pokeballColor};
+  color: ${(props) => props.theme.fontColor};
   text-shadow: ${(props) => props.theme.textShadow};
   -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
