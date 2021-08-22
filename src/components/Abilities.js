@@ -3,7 +3,7 @@ import AbilityCard from "./AbilityCard";
 import styled from "styled-components";
 import axios from "axios";
 
-const Abilities = () => {
+const Abilities = (props) => {
   const url = "https://pokeapi.co/api/v2/ability?limit=15";
 
   const [abilities, setAbilities] = useState([]);
@@ -25,7 +25,7 @@ const Abilities = () => {
   return (
     <AbilityCardContainer>
       {abilities.map((ability) => (
-        <AbilityCard key={ability.name} ability={ability} />
+        <AbilityCard key={ability.name} ability={ability} theme={props.theme} />
       ))}
     </AbilityCardContainer>
   );

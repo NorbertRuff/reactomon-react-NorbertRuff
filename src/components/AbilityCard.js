@@ -32,7 +32,7 @@ const AbilityCard = (props) => {
   }, [props.ability.url]);
 
   return (
-    <PokeAbilityCard id={props.ability.name}>
+    <PokeAbilityCard>
       <H4>
         {ability.name} #0{ability.id}
       </H4>
@@ -43,7 +43,9 @@ const AbilityCard = (props) => {
 };
 
 const H4 = styled.div`
-  color: white;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
   text-align: center;
   margin: auto;
   text-transform: capitalize;
@@ -57,6 +59,8 @@ const H3 = styled.div`
   text-transform: capitalize;
   font-size: 18px;
   color: white;
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
 
 const PokeAbilityCard = styled.div`
@@ -64,13 +68,17 @@ const PokeAbilityCard = styled.div`
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  background-color: rgb(48 167 215);
+
+  background-color: ${(props) => props.theme.pokeColor};
+
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid black;
   text-align: center;
   margin: auto;
-  color: black;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
   border-radius: 20px;
   width: 290px;
   height: 240px;
