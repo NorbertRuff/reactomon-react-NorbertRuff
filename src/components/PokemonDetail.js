@@ -120,7 +120,7 @@ const Title = styled.h2`
   text-align: center;
   grid-area: title;
   font-size: 45px;
-  background-color: rgb(100, 100, 100);
+  background-color: ${(props) => props.theme.pokeColor};
   border-bottom: 10px ridge rgba(255, 250, 11, 0.82);
   border-radius: 0px 0px 30px 30px;
   width: 100%;
@@ -157,10 +157,14 @@ const Type = styled.div`
   flex: 1;
   justify-content: space-evenly;
   gap: 10px;
-  color: white;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
 `;
 const Description = styled.div`
-  color: cornflowerblue;
+  color: ${(props) => props.theme.body};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
   grid-area: description;
   font-size: 4rem;
 `;

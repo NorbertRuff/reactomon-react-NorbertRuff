@@ -7,22 +7,22 @@ const PokeStats = (props) => {
       <div>
         <H4>
           Experience
-          <span> {props.pokemon.experience}</span>
+          <Span> {props.pokemon.experience}</Span>
         </H4>
         <H4>
           Weight
-          <span> {props.pokemon.weight}</span>
+          <Span> {props.pokemon.weight}</Span>
         </H4>
         <H4>
           Height
-          <span> {props.pokemon.height}</span>
+          <Span> {props.pokemon.height}</Span>
         </H4>
       </div>
       <div>
         {props.pokemon.stats.map((stat) => (
           <H3 key={stat.stat.name}>
             {stat.stat.name}
-            <span>--> {stat.base_stat}</span>
+            <Span> --> {stat.base_stat}</Span>
           </H3>
         ))}
       </div>
@@ -34,7 +34,9 @@ const H4 = styled.h4`
   text-align: Left;
 
   font-size: 2rem;
-  color: white;
+  color: ${(props) => props.theme.pokeballColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
   z-index: 10;
 `;
 
@@ -60,4 +62,11 @@ const Stats = styled.div`
   margin: 10px;
   justify-content: space-around;
 `;
+
+const Span = styled.span`
+  color: ${(props) => props.theme.pokeballColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
+`;
+
 export default PokeStats;
