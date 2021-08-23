@@ -33,7 +33,7 @@ const TypeList = (props) => {
 };
 
 const TypeCardContainer = styled.div`
-  grid-area: content;
+  grid-area: maincontent;
   display: flex;
   flex: 1;
   justify-content: space-between;

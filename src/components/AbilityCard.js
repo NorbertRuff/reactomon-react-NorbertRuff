@@ -47,7 +47,7 @@ const H4 = styled.div`
   text-align: center;
   margin: auto;
   text-transform: capitalize;
-  font-size: 26px;
+  font-size: 1rem;
 `;
 
 const H3 = styled.div`
@@ -55,7 +55,7 @@ const H3 = styled.div`
   padding: 0 10px;
   margin: auto;
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 1rem;
   color: ${(props) => props.theme.box};
   text-shadow: none;
   -webkit-text-stroke: none;
@@ -77,8 +77,8 @@ const PokeAbilityCard = styled.div`
   color: ${(props) => props.theme.box};
 
   border-radius: 20px;
-  width: 290px;
-  height: 240px;
+  width: 15vw;
+  height: 25vh;
   overflow: hidden;
 `;
 

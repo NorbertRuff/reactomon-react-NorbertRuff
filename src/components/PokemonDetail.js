@@ -99,7 +99,7 @@ const PokemonDetail = (props) => {
 };
 
 const PokemonDetails = styled.div`
-  grid-area: content;
+  grid-area: maincontent;
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 10% 20% 30% 10% 10% 5%;
@@ -119,7 +119,7 @@ const PokemonDetails = styled.div`
 const Title = styled.h2`
   text-align: center;
   grid-area: title;
-  font-size: 45px;
+  font-size: 4em;
   background-color: ${(props) => props.theme.body};
   border-bottom: ${(props) => props.theme.border.borderBottom};
   border-radius: 0px 0px 30px 30px;
@@ -130,7 +130,7 @@ const Title = styled.h2`
 `;
 
 const Thumbnail = styled.img`
-  width: 150px;
+  width: auto;
   height: auto;
 `;
 

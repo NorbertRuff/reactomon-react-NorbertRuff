@@ -64,8 +64,8 @@ const PokeThumbnail = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  width: 14vw;
-  height: 17vh;
+  width: 60%;
+  height: 80%;
 `;
 
 const Scale = keyframes`
@@ -86,6 +86,8 @@ const PokeCardDiv = styled.div`
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 10px;
   position: relative;
+  width: 15vw;
+  height: auto;
   :hover {
     animation: ${Scale} 0.6s ease-in-out both;
   }
@@ -93,9 +95,9 @@ const PokeCardDiv = styled.div`
 
 const H4 = styled.h4`
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   text-transform: capitalize;
-  font-size: 26px;
+  font-size: 1.3rem;
   color: ${(props) => props.theme.fontColor};
   text-shadow: ${(props) => props.theme.textShadow};
   -webkit-text-stroke: ${(props) => props.theme.stroke};
@@ -106,7 +108,7 @@ const PokeStyles = styled.div`
   position: absolute;
   width: 5rem;
   top: 0;
-  left: 76%;
+  left: 10vw;
   font-size: 20px;
 `;
 

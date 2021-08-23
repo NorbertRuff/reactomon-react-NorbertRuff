@@ -32,11 +32,10 @@ const Abilities = (props) => {
 };
 
 const AbilityCardContainer = styled.div`
-  grid-area: content;
-  display: flex;
-  flex: 1;
+  grid-area: maincontent;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 5px;
   width: 90%;
   margin: auto;

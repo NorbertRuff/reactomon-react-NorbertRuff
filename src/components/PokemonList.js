@@ -91,8 +91,8 @@ const NavButton = styled.button`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100px;
-  height: 100px;
+  width: 3vw;
+  height: 10vh;
   border: 2px solid #3866a3;
   color: #14396a;
   border-radius: 20px;
@@ -107,16 +107,17 @@ const NavButton = styled.button`
 const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 5% 90% 5%;
-  grid-area: content;
+  grid-area: maincontent;
+  height: 100%;
   justify-content: center;
 `;
 
 const CardContainer = styled.div`
-  display: flex;
-  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 5px;
   justify-content: space-around;
-  flex-wrap: wrap;
 `;
 
 export default PokemonList;

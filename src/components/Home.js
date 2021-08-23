@@ -13,7 +13,7 @@ const Home = (props) => {
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  grid-area: content;
+  grid-area: maincontent;
   justify-content: center;
   align-items: center;
 `;
@@ -26,8 +26,8 @@ const H1 = styled.h1`
 `;
 
 const LogoContainer = styled.div`
-  width: 40vw;
-  height: 60vh;
+  width: 40%;
+  height: 80%;
   background-color: ${(props) => props.theme.backgroundColor};
   background-image: url(${logo});
   background-size: contain;

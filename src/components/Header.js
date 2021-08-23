@@ -36,8 +36,8 @@ const ThemeChangeButton = styled.button`
   justify-content: center;
   margin: auto;
   padding: 0.5rem;
-  width: 9rem;
-  height: 8rem;
+  width: 90%;
+  height: 80%;
   border-radius: 30%;
   color: black;
   font-size: 1.3rem;
@@ -65,6 +65,7 @@ const HeaderDiv = styled.div`
   display: grid;
   grid-template-areas: "logo navbar user";
   grid-template-columns: 25% 50% 25%;
+  height: 100%;
   justify-items: center;
   grid-area: header;
   border-bottom: ${(props) => props.theme.border.borderBottom};
