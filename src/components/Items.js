@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import AbilityCard from "./AbilityCard";
 import axios from "axios";
-import { CardContainer } from "./Style/AbilitieElements";
 import { Error } from "./Style/Error";
+import ItemCard from "./ItemCard";
+import { TypeCardContainer } from "./Style/TypeElements";
 
-const Abilities = (props) => {
-  const url = "https://pokeapi.co/api/v2/ability?limit=15";
+const Items = (props) => {
+  const url = "https://pokeapi.co/api/v2/item";
 
-  const [abilities, setAbilities] = useState([]);
+  const [items, setItems] = useState([]);
   const [error, setError] = useState("");
   useEffect(() => {
     axios
       .get(url)
       .then((res) => {
-        setAbilities(res.data.results);
+        setItems(res.data.results);
       })
       .catch((error) => {
         setError(error.message);
@@ -32,18 +32,14 @@ const Abilities = (props) => {
           again later!
         </Error>
       ) : (
-        <CardContainer>
-          {abilities.map((ability) => (
-            <AbilityCard
-              key={ability.name}
-              ability={ability}
-              theme={props.theme}
-            />
+        <TypeCardContainer>
+          {items.map((item) => (
+            <ItemCard key={item.name} item={item} theme={props.theme} />
           ))}
-        </CardContainer>
+        </TypeCardContainer>
       )}
     </React.Fragment>
   );
 };
 
-export default Abilities;
+export default Items;

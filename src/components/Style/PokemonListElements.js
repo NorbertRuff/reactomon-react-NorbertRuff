@@ -28,7 +28,7 @@ export const NavButton = styled.button`
 export const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 5% 90% 5%;
-  grid-area: content;
+  grid-area: maincontent;
   justify-content: center;
 `;
 

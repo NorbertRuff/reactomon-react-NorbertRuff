@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const AbilityCardContainer = styled.div`
-  grid-area: content;
+export const CardContainer = styled.div`
+  grid-area: maincontent;
   display: flex;
   flex: 1;
   justify-content: space-between;

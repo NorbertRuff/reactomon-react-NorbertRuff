@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PokemonDetails = styled.div`
-  grid-area: content;
+  grid-area: maincontent;
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 10% 20% 30% 10% 10% 5%;

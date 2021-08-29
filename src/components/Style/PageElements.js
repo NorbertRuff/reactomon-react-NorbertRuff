@@ -7,6 +7,23 @@ const Scale = keyframes`
 100% {transform: rotate(360deg);}
 `;
 
+export const PageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 20vh 40vh 40vh;
+  grid-template-areas:
+    "header header header"
+    ". maincontent ."
+    ". maincontent . ";
+  justify-content: center;
+  line-height: 1.4;
+  width: 100%;
+  max-height: 100%;
+  color: ${(props) => props.theme.fontColor};
+  text-shadow: ${(props) => props.theme.textShadow};
+  -webkit-text-stroke: ${(props) => props.theme.stroke};
+`;
+
 export const ThemeChangeButton = styled.button`
   display: flex;
   align-items: flex-end;
@@ -55,7 +72,7 @@ export const HeaderDiv = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  grid-area: content;
+  grid-area: maincontent;
   justify-content: center;
   align-items: center;
 `;
