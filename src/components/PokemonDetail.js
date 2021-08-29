@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styled from "styled-components";
 import PokeStats from "./PokeStats";
+import {
+  PokemonDetails,
+  Title,
+  Thumbnail,
+  Description,
+  Gallery,
+  PokePicture,
+  Type,
+  Abilities,
+  Span,
+} from "./Style/PokemonDetailsElements";
+import { Error } from "./Style/Error";
 
 const PokemonDetail = (props) => {
   const id = props.match.params.id;
@@ -20,6 +31,7 @@ const PokemonDetail = (props) => {
     firstType: null,
     stats: [],
   });
+  const [error, setError] = useState("");
 
   const [description, setDescription] = useState();
 
@@ -44,6 +56,7 @@ const PokemonDetail = (props) => {
         });
       })
       .catch((error) => {
+        setError(error.message);
         console.error(
           `The request was made and the server responded
         with a status code that falls out of the range of 2xx` + error.message
@@ -64,122 +77,46 @@ const PokemonDetail = (props) => {
   }, [id, url]);
 
   return (
-    <PokemonDetails id={pokemon.firstType}>
-      <Title>
-        {pokemon.name} #{"0".repeat(2) + pokemon.id}
-      </Title>
-      <Description>{description}</Description>
-      <PokePicture>
-        <img src={pokemon.artWork} alt="pokemon_back" />
-      </PokePicture>
-      <Gallery>
-        <Thumbnail src={pokemon.sprites.front_shiny} alt="pokemon_front" />
-        <Thumbnail src={pokemon.sprites.back_shiny} alt="pokemon_back" />
-        <Thumbnail src={pokemon.dreamWorld} alt="pokemon_back" />
-      </Gallery>
-      <Type>
-        Type:
-        {pokemon.types.map((type) => (
-          <div key={type.type.name}>
-            <Span>{type.type.name}</Span>
-          </div>
-        ))}
-      </Type>
-      <PokeStats theme={props.them} pokemon={pokemon} />
-      <Abilities>
-        Abilities:
-        {pokemon.abilities.map((ability) => (
-          <div key={ability.ability.name}>
-            <Span>{ability.ability.name}</Span>
-          </div>
-        ))}
-      </Abilities>
-    </PokemonDetails>
+    <React.Fragment>
+      {error ? (
+        <Error>
+          An error occured while fetching the astronauts information. Please try
+          again later!
+        </Error>
+      ) : (
+        <PokemonDetails id={pokemon.firstType}>
+          <Title>
+            {pokemon.name} #{"0".repeat(2) + pokemon.id}
+          </Title>
+          <Description>{description}</Description>
+          <PokePicture>
+            <img src={pokemon.artWork} alt="pokemon_back" />
+          </PokePicture>
+          <Gallery>
+            <Thumbnail src={pokemon.sprites.front_shiny} alt="pokemon_front" />
+            <Thumbnail src={pokemon.sprites.back_shiny} alt="pokemon_back" />
+            <Thumbnail src={pokemon.dreamWorld} alt="pokemon_back" />
+          </Gallery>
+          <Type>
+            Type:
+            {pokemon.types.map((type) => (
+              <div key={type.type.name}>
+                <Span>{type.type.name}</Span>
+              </div>
+            ))}
+          </Type>
+          <PokeStats theme={props.them} pokemon={pokemon} />
+          <Abilities>
+            Abilities:
+            {pokemon.abilities.map((ability) => (
+              <div key={ability.ability.name}>
+                <Span>{ability.ability.name}</Span>
+              </div>
+            ))}
+          </Abilities>
+        </PokemonDetails>
+      )}
+    </React.Fragment>
   );
 };
-
-const PokemonDetails = styled.div`
-  grid-area: content;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 10% 20% 30% 10% 10% 5%;
-  gap: 10px;
-  padding: 0 10px;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  grid-template-areas:
-    "title title"
-    "picture description"
-    "picture stats"
-    "picture type"
-    "gallery ."
-    "footer footer";
-`;
-const Title = styled.h2`
-  text-align: center;
-  grid-area: title;
-  font-size: 45px;
-  background-color: ${(props) => props.theme.body};
-  border-bottom: ${(props) => props.theme.border.borderBottom};
-  border-radius: 0px 0px 30px 30px;
-  width: 100%;
-  color: white;
-  z-index: 10;
-  margin-bottom: 10px;
-`;
-
-const Thumbnail = styled.img`
-  width: 150px;
-  height: auto;
-`;
-
-const Gallery = styled.div`
-  display: flex;
-  justify-content: space-between;
-  grid-area: gallery;
-`;
-
-const PokePicture = styled.div`
-  grid-area: picture;
-  color: ${(props) => props.theme.box};
-  background-color: ${(props) => props.theme.box};
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border: 1px solid black;
-  border-radius: 20px;
-`;
-
-const Type = styled.div`
-  font-size: 2rem;
-  grid-area: type;
-  width: 80%;
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
-  gap: 10px;
-  color: ${(props) => props.theme.fontColor};
-  text-shadow: ${(props) => props.theme.textShadow};
-  -webkit-text-stroke: ${(props) => props.theme.stroke};
-`;
-const Description = styled.div`
-  color: ${(props) => props.theme.body};
-  text-shadow: ${(props) => props.theme.textShadow};
-  -webkit-text-stroke: ${(props) => props.theme.stroke};
-  grid-area: description;
-  font-size: 4rem;
-`;
-const Abilities = styled.div`
-  font-size: 30px;
-  color: lightblue;
-  display: flex;
-  gap: 20px;
-  justify-content: space-around;
-`;
-
-const Span = styled.span`
-  color: ${(props) => props.theme.backgroundColor};
-  text-shadow: ${(props) => props.theme.textShadow};
-  -webkit-text-stroke: ${(props) => props.theme.stroke};
-`;
 export default PokemonDetail;

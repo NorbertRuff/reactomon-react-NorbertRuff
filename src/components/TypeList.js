@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import TypeCard from "./TypeCard";
+import { TypeCardContainer } from "./Style/TypeElements";
+import { Error } from "./Style/Error";
 
 import axios from "axios";
-import styled from "styled-components";
 
 const TypeList = (props) => {
   const url = "https://pokeapi.co/api/v2/type";
 
   const [types, setTypes] = useState([]);
-
+  const [error, setError] = useState("");
   useEffect(() => {
     axios
       .get(url)
@@ -16,6 +17,7 @@ const TypeList = (props) => {
         setTypes(res.data.results);
       })
       .catch((error) => {
+        setError(error.message);
         console.error(
           `The request was made and the server responded
           with a status code that falls out of the range of 2xx` + error.message
@@ -24,23 +26,21 @@ const TypeList = (props) => {
   }, []);
 
   return (
-    <TypeCardContainer>
-      {types.map((type) => (
-        <TypeCard key={type.name} type={type} theme={props.theme} />
-      ))}
-    </TypeCardContainer>
+    <React.Fragment>
+      {error ? (
+        <Error>
+          An error occured while fetching the astronauts information. Please try
+          again later!
+        </Error>
+      ) : (
+        <TypeCardContainer>
+          {types.map((type) => (
+            <TypeCard key={type.name} type={type} theme={props.theme} />
+          ))}
+        </TypeCardContainer>
+      )}
+    </React.Fragment>
   );
 };
-
-const TypeCardContainer = styled.div`
-  grid-area: content;
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 90%;
-  margin: auto;
-`;
 
 export default TypeList;

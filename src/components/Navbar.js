@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { PokeButton } from "./PokeButton";
+import { PokeBar } from "./Style/PageElements";
 
 const Navbar = (props) => {
   return (
@@ -24,14 +24,5 @@ const Navbar = (props) => {
     </PokeBar>
   );
 };
-
-const PokeBar = styled.div`
-  grid-area: navbar;
-  z-index: 10;
-  width: 40vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 export default Navbar;
