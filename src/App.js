@@ -57,15 +57,15 @@ function App() {
 const PageContainer = styled.div`
   display: grid;
   grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 20% 40% 39%;
+  grid-template-rows: 20vh 40vh 40vh;
   grid-template-areas:
     "header header header"
-    ". content ."
-    ". content . ";
+    ". maincontent ."
+    ". maincontent . ";
   justify-content: center;
   line-height: 1.4;
-  width: 99.8%;
-  height: 100vh;
+  width: 100%;
+  max-height: 100%;
   color: ${(props) => props.theme.fontColor};
   text-shadow: ${(props) => props.theme.textShadow};
   -webkit-text-stroke: ${(props) => props.theme.stroke};
