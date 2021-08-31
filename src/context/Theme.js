@@ -16,9 +16,9 @@ export const lightTheme = {
   box: "rgb(48 167 215);",
   statsColor: "red",
   border: {
-    borderBottom: "10px ridge rgba(255, 250, 11, 0.82);",
-    borderRight: "10px ridge rgba(255, 250, 11, 0.82);",
-    borderLeft: "10px ridge rgba(255, 250, 11, 0.82);",
+    borderBottom: "10px ridge rgba(255, 250, 11, 0.80);",
+    borderRight: "10px ridge rgba(255, 250, 11, 0.80);",
+    borderLeft: "10px ridge rgba(255, 250, 11, 0.80);",
   },
 
   pokeballColor: "red",
