@@ -1,22 +1,7 @@
 import React from "react";
-import PokeLogo from "../static/img/pokelogo.png";
-import styled from "styled-components";
-
+import { LogoImage } from "./Style/PageElements";
 const Logo = () => {
   return <LogoImage> </LogoImage>;
 };
-
-const LogoImage = styled.div`
-  filter: drop-shadow(3px 3px 0.3rem rgba(0, 0, 0, 0.95));
-  grid-area: logo;
-  content: "";
-  background-image: url(${PokeLogo});
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 90%;
-  height: 100%;
-  z-index: 10;
-  margin: 0;
-`;
 
 export default Logo;

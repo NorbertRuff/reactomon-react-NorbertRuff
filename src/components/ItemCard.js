@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { PokeAbilityCard, H3, H4 } from "./Style/AbilitieElements";
 import { Error } from "./Style/Error";
+import {
+  ItemThumbnail,
+  ItemContainer,
+  H4 as Title,
+} from "./Style/TypeElements";
 
-const AbilityCard = (props) => {
+const ItemCard = (props) => {
   const [error, setError] = useState("");
-  const [ability, setAbility] = useState({
+  const [item, setItem] = useState({
     id: null,
     name: null,
-    shortEffect: null,
+    sprite: null,
     description: null,
+    effect: null,
   });
 
   useEffect(() => {
     axios
-      .get(props.ability.url)
+      .get(props.item.url)
       .then((res) => {
-        setAbility({
+        setItem({
           id: res.data.id,
           name: res.data.name,
-          shortEffect: res.data.effect_entries[1].short_effect,
-          description: res.data.flavor_text_entries[0].flavor_text,
+          sprite: res.data.sprites.default,
+          effect: res.data.effect_entries[0].effect,
         });
       })
 
@@ -32,7 +37,7 @@ const AbilityCard = (props) => {
             error.message
         );
       });
-  }, [props.ability.url]);
+  }, [props.item.url]);
 
   return (
     <React.Fragment>
@@ -42,16 +47,15 @@ const AbilityCard = (props) => {
           again later!
         </Error>
       ) : (
-        <PokeAbilityCard>
-          <H4>
-            {ability.name} #0{ability.id}
-          </H4>
-          <H3> {ability.shortEffect}</H3>
-          <H3> {ability.description}</H3>
-        </PokeAbilityCard>
+        <ItemContainer>
+          <Title>
+            {item.name} #0{item.id}
+          </Title>
+          <ItemThumbnail picture={item.sprite}></ItemThumbnail>
+        </ItemContainer>
       )}
     </React.Fragment>
   );
 };
 
-export default AbilityCard;
+export default ItemCard;

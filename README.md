@@ -11,10 +11,9 @@
 <div align="center">
 
 \*\*[PROJECT PHILOSOPHY](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-project-philosophy) •
-[WIKI](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-wiki) •
 [TECH STACK](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-tech-stack) •
-[CONTRIBUTING](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/%EF%B8%8F-contributing) •
-[SPREAD THE WORD](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-spread-the-word) •
+[CONTRIBUTING](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-contributing) •
+[SPREAD THE WORD](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/#-spread-the-word) •\*\*
 
 </div>
 
@@ -24,9 +23,9 @@
 
 > Lear new things, have fun with front-end developement.
 
-![Reactomon_screenshot1](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/raw/development/src/static/img/screenshot1.png)
+![Reactomon_screenshot1](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/raw/master/src/static/img/screenshot1.png)
 
-![Reactomon_screenshot2](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/raw/development/src/static/img/screenshot2.png)
+![Reactomon_screenshot2](https://github.com/NorbertRuff/reactomon-react-NorbertRuff/raw/master/src/static/img/screenshot2.png)
 
 # 📒 Tasks
 

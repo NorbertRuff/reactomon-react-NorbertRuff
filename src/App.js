@@ -2,13 +2,15 @@ import "./static/css/App.css";
 import PokemonDetail from "./components/PokemonDetail";
 import PokemonList from "./components/PokemonList";
 import Abilities from "./components/Abilities";
+import Items from "./components/Items";
 import TypeList from "./components/TypeList";
 import Overlay from "./components/Overlay";
 import Home from "./components/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
+import { PageContainer } from "./components/Style/PageElements";
 import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./context/Theme.js";
 
 function App() {
@@ -47,28 +49,16 @@ function App() {
               render={(props) => <TypeList {...props} theme={theme} />}
               exact
             />
+            <Route
+              path="/items"
+              render={(props) => <Items {...props} theme={theme} />}
+              exact
+            />
           </Switch>
         </BrowserRouter>
       </PageContainer>
     </ThemeProvider>
   );
 }
-
-const PageContainer = styled.div`
-  display: grid;
-  grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 20% 40% 39%;
-  grid-template-areas:
-    "header header header"
-    ". content ."
-    ". content . ";
-  justify-content: center;
-  line-height: 1.4;
-  width: 99.8%;
-  height: 100vh;
-  color: ${(props) => props.theme.fontColor};
-  text-shadow: ${(props) => props.theme.textShadow};
-  -webkit-text-stroke: ${(props) => props.theme.stroke};
-`;
 
 export default App;
