@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import TypeCard from "./TypeCard";
-import { TypeCardContainer } from "./Style/TypeElements";
-import { Error } from "./Style/Error";
-
 import axios from "axios";
+import { Error } from "./Style/Error";
+import ItemCard from "./ItemCard";
+import { TypeCardContainer } from "./Style/TypeElements";
 
-const TypeList = (props) => {
-  const url = "https://pokeapi.co/api/v2/type";
+const Items = (props) => {
+  const url = "https://pokeapi.co/api/v2/item";
 
-  const [types, setTypes] = useState([]);
+  const [items, setItems] = useState([]);
   const [error, setError] = useState("");
   useEffect(() => {
     axios
       .get(url)
       .then((res) => {
-        setTypes(res.data.results);
+        setItems(res.data.results);
       })
       .catch((error) => {
         setError(error.message);
@@ -34,8 +33,8 @@ const TypeList = (props) => {
         </Error>
       ) : (
         <TypeCardContainer>
-          {types.map((type) => (
-            <TypeCard key={type.name} type={type} theme={props.theme} />
+          {items.map((item) => (
+            <ItemCard key={item.name} item={item} theme={props.theme} />
           ))}
         </TypeCardContainer>
       )}
@@ -43,4 +42,4 @@ const TypeList = (props) => {
   );
 };
 
-export default TypeList;
+export default Items;

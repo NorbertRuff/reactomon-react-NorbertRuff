@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.idea/misc.xml
+.idea/modules.xml
+.idea/reactomon.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/shelf/Uncommitted_changes_before_Update_at_2021__08__22__18_37__Default_Changelist_.xml

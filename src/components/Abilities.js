@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AbilityCard from "./AbilityCard";
-import styled from "styled-components";
 import axios from "axios";
+import { CardContainer } from "./Style/AbilitieElements";
+import { Error } from "./Style/Error";
 
 const Abilities = (props) => {
   const url = "https://pokeapi.co/api/v2/ability?limit=15";
 
   const [abilities, setAbilities] = useState([]);
-
+  const [error, setError] = useState("");
   useEffect(() => {
     axios
       .get(url)
@@ -15,6 +16,7 @@ const Abilities = (props) => {
         setAbilities(res.data.results);
       })
       .catch((error) => {
+        setError(error.message);
         console.error(
           `The request was made and the server responded
           with a status code that falls out of the range of 2xx` + error.message
@@ -23,23 +25,25 @@ const Abilities = (props) => {
   }, []);
 
   return (
-    <AbilityCardContainer>
-      {abilities.map((ability) => (
-        <AbilityCard key={ability.name} ability={ability} theme={props.theme} />
-      ))}
-    </AbilityCardContainer>
+    <React.Fragment>
+      {error ? (
+        <Error>
+          An error occured while fetching the astronauts information. Please try
+          again later!
+        </Error>
+      ) : (
+        <CardContainer>
+          {abilities.map((ability) => (
+            <AbilityCard
+              key={ability.name}
+              ability={ability}
+              theme={props.theme}
+            />
+          ))}
+        </CardContainer>
+      )}
+    </React.Fragment>
   );
 };
-
-const AbilityCardContainer = styled.div`
-  grid-area: content;
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 5px;
-  width: 90%;
-  margin: auto;
-`;
 
 export default Abilities;
